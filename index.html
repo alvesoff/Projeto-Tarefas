@@ -10,8 +10,8 @@
     <div class="theme-menu">
         <label for="theme">Tema:</label>
         <select id="theme">
-            <option value="default">Padrão</option>
-            <option value="dark">Escuro</option>
+            <option value="default">Escuro</option>
+            <option value="dark">Padrão</option>
             <option value="light">Claro</option>
         </select>
     </div>
@@ -30,14 +30,31 @@
         </div>
 
         <form action="">
-            <input type="text" id="taskInput" placeholder="Escreva Sua Tarefa">
+            <input type="text" id="taskInput" placeholder="Escreva Sua Tarefa" oninput="limitCharacters(this, 20)">
             <select id="categoryInput">
-                <option value="Trabalho">Trabalho</option>
-                <option value="Pessoal">Pessoal</option>
-                <option value="Outros">Outros</option>
+                <option value="Trabalho">TRABALHO</option>
+                <option value="Pessoal">PESSOAL</option>
+                <option value="Outros">OUTROS</option>
             </select>
-            <button id="newTask" type="submit">+</button>
+            <button id="newTask" style="font-family: Arial, sans-serif;" type="submit">+</button>
+
         </form>
+        
+        <script>
+        function limitCharacters(input, maxLength) {
+    if (input.value.length > maxLength) {
+        alert(`O máximo de caracteres permitido é ${maxLength}.`);
+        input.value = input.value.slice(0, maxLength);
+    }
+}
+
+        </script>
+        
+        <div class="filter-buttons">
+            <button id="allTasks" class="filter-btn">Todas</button>
+            <button id="pendingTasks" class="filter-btn">Pendentes</button>
+            <button id="completedTasks" class="filter-btn">Concluidas</button>
+        </div>
 
         <ul class="task-list"></ul>
     </div>

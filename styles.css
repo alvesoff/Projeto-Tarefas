@@ -10,17 +10,14 @@
 }
 
 :root {
-    --background: #000430; /* Define a cor de fundo principal */
-    --secondaryBackground: #171c48; /* Define a cor de fundo secundária */
+    --background: #1e1c1f; /* Define a cor de fundo principal */
+    --secondaryBackground: #000000; /* Define a cor de fundo secundária */
     --text: #fff; /* Define a cor do texto */
-    --purple: #828dff; /* Define a cor roxa */
-    --teal: #24feee; /* Define a cor teal */
+    --purple: #4c57ee; /* Define a cor roxa */
+    --teal: #00e745; /* Define a cor teal */
     --completedCheckbox: #28a745; /* Cor para o checkbox concluído */
 }
-p {
-    font-family: "Agdasima", sans-serif;
-    font-weight: 700;
-}
+
 body {
     background-color: var(--background); /* Aplica a cor de fundo ao corpo da página */
     color: var(--text); /* Aplica a cor do texto ao corpo da página */
@@ -117,6 +114,30 @@ button {
     cursor: pointer;
 }
 
+.filter-buttons {
+    display: flex; /* Define o contêiner como flexbox */
+    justify-content: center; /* Centraliza os botões horizontalmente */
+    gap: 20px; /* Adiciona mais espaço entre os botões */
+    margin-top: 20px; /* Adiciona margem superior */
+}
+
+.filter-btn {
+    padding: 5px 75px; /* Adiciona padding aos botões */
+    border: 1px solid var(--purple); /* Define a borda dos botões */
+    border-radius: 5px; /* Arredonda os cantos dos botões */
+    background-color: var(--secondaryBackground); /* Define a cor de fundo dos botões */
+    color: var(--text); /* Define a cor do texto dos botões */
+    cursor: pointer; /* Adiciona um cursor pointer */
+    transition: background-color 0.3s ease; /* Adiciona uma transição suave */
+    white-space: nowrap; /* Impede que o texto quebre para uma nova linha */
+    font-size: 19px; /* Diminui o tamanho do texto */
+}
+
+.filter-btn:hover {
+    background-color: var(--purple); /* Muda a cor de fundo ao passar o mouse */
+}
+
+
 #task-list {
     display: flex; /* Define a lista de tarefas como flexbox */
     flex-direction: column; /* Alinha os itens em coluna */
@@ -145,7 +166,6 @@ button {
 }
 
 .task input {
-    width: 20px;
     height: 20px;
 }
 .completed p{
@@ -166,10 +186,12 @@ button {
 
 /* Estilos para a categoria */
 .category {
-    font-size: 12px;
-    color: #fff;
+    font-size: 15px;
+    color: var(--purple);
     margin-left: 10px;
-    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: normal;
+    
 }
 
 /* Estiliza o contêiner do select */
@@ -224,12 +246,12 @@ select option:checked {
 
 /* Temas */
 body.default {
-    --background: #000430;
-    --secondaryBackground: #171c48;
-    --text: #fff;
-    --purple: #828dff;
-    --teal: #24feee;
-    --completedCheckbox: #28a745;
+    --background: #1e1c1f; /* Define a cor de fundo principal */
+    --secondaryBackground: #000000; /* Define a cor de fundo secundária */
+    --text: #fff; /* Define a cor do texto */
+    --purple: #4c57ee; /* Define a cor roxa */
+    --teal: #00e745; /* Define a cor teal */
+    --completedCheckbox: #28a745; /* Cor para o checkbox concluído */
 }
 
 body.dark {
@@ -242,10 +264,10 @@ body.dark {
 }
 
 body.light {
-    --background: #f5f5f5;
-    --secondaryBackground: #ffffff;
+    --background: #69f5d2;
+    --secondaryBackground: #e2e2e2;
     --text: #000000;
-    --purple: #6200ee;
+    --purple: #9364d4;
     --teal: #018786;
     --completedCheckbox: #018786;
 }
@@ -277,4 +299,66 @@ body.light {
     -webkit-appearance: none;
     -moz-appearance: none;
     cursor: pointer;
+}
+
+
+.save-btn {
+    padding: 5px 10px;
+    background-color: var(--purple);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.save-btn:hover {
+    background-color: var(--purple);
+}
+
+
+@media (max-width: 600px) {
+    .container {
+        margin: 60px auto 0 auto;
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .stats-container {
+        gap: 20px;
+    }
+
+    #numbers {
+        width: 80px;
+        height: 80px;
+        font-size: 24px;
+    }
+
+    form {
+        gap: 10px;
+    }
+
+    input, select, button {
+        font-size: 16px;
+    }
+
+    .filter-buttons {
+        gap: 10px;
+    }
+
+    .filter-btn {
+        font-size: 16px;
+        padding: 10px 27px; /* Ajusta o padding para diminuir o comprimento */
+        width: auto; /* Ajusta a largura automaticamente */
+    }
+
+    .taskItem {
+        align-items: flex-start;
+        width: 100%; /* Ajusta a largura para ocupar 100% do contêiner */
+        max-width: 380px;
+        min-width: 380px;
+    }
+
+    .taskItem img {
+        width: 20px;
+        height: 20px;
+    }
 }
